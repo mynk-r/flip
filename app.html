@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mandate | Personal AI control layer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">M</div>
+      <div><div class="brand-name">Mandate</div><div class="brand-tag">Keep the decision.</div></div>
+    </div>
+
+    <div class="agent-card">
+      <div class="avatar">A</div>
+      <div class="agent-info"><div class="label">Your agent</div><div class="agent-name">Aria</div></div>
+      <div class="status"><i></i><span id="agentStatus">Active</span></div>
+    </div>
+
+    <nav>
+      <button class="nav-btn active" id="nav-activity" onclick="showTab('activity')"><span class="icon">◷</span>Activity</button>
+      <button class="nav-btn" id="nav-needs" onclick="showTab('needs')"><span class="icon">!</span>Needs you<span class="badge" id="badge">0</span></button>
+      <button class="nav-btn" id="nav-rules" onclick="showTab('rules')"><span class="icon">◇</span>Autonomy rules</button>
+      <button class="nav-btn" id="nav-report" onclick="showTab('report')"><span class="icon">↗</span>Agency report</button>
+    </nav>
+
+    <div class="principle">
+      <div class="label blue">Mandate principle</div>
+      <p>Autonomy should scale with convenience. Human control should scale with consequence.</p>
+    </div>
+
+    <div class="spacer"></div>
+    <button class="help" onclick="openAbout()"><span class="help-icon">?</span>What is Mandate?</button>
+    <div class="user"><div class="avatar grey">M</div><div><b>Mayank</b><div class="small-grey">Personal account</div></div></div>
+  </aside>
+
+  <!-- MAIN AREA -->
+  <main class="main">
+    <header class="top">
+      <div>
+        <div class="label blue">Personal AI control layer</div>
+        <h1>Good morning, Mayank.</h1>
+        <p class="subtitle">Aria is working for you. You remain in control.</p>
+      </div>
+      <div class="top-right">
+        <label class="switch">
+          <span class="switch-text"><b>Mandate</b><small id="mandateLabel">Control layer</small></span>
+          <input type="checkbox" id="mandateSwitch" checked onchange="toggleMandate(this.checked)">
+          <i></i>
+        </label>
+        <div class="buttons">
+          <button class="btn" onclick="runNextAction()">Next agent action</button>
+          <button class="btn primary" id="autoBtn" onclick="toggleAutoRun()">Auto-run</button>
+          <button class="btn grey" onclick="restartDay()">Restart</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="banner">
+      <div class="logo">M</div>
+      <div class="banner-text"><b>AI handles the task. You keep the decision.</b><span>Mandate automatically adjusts autonomy based on consequence, reversibility and conflicts of interest.</span></div>
+      <div class="flow"><i>YOU</i><s>→</s><i class="b">MANDATE</i><s>→</s><i class="g">ARIA</i><s>→</s><i>WORLD</i></div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="label">AI actions</div><div class="stat-num" id="statActions">0</div><div class="stat-sub">today</div></div>
+      <div class="stat"><div class="label">Autonomous</div><div class="stat-num" id="statAuto">0</div><div class="stat-sub" id="statAutoSub">handled safely</div></div>
+      <div class="stat"><div class="label">Needs you</div><div class="stat-num" id="statNeeds">0</div><div class="stat-sub" id="statNeedsSub">nothing pending</div></div>
+      <div class="stat"><div class="label">Control</div><div class="stat-num" id="statControl">0%</div><div class="stat-sub">meaningful control</div></div>
+    </div>
+
+    <section id="panel"></section>
+
+    <div class="chart-card">
+      <div class="chart-head">
+        <div><div class="label blue">Agent activity</div><h2>Aria's actions today</h2></div>
+        <div class="legend"><span><i class="dot AUTO"></i>AUTO</span><span><i class="dot REVIEW"></i>REVIEW</span><span><i class="dot HUMAN"></i>HUMAN</span></div>
+      </div>
+      <div class="chart" id="chart"></div>
+      <div class="chart-foot"><span>Taller actions represent higher consequence.</span><span>Mandate determines autonomy.</span></div>
+    </div>
+
+    <footer class="footer"><span><b>Mandate</b>&nbsp; A human-control layer for autonomous AI.</span><span>Automate the task. Keep the decision.</span></footer>
+  </main>
+</div>
+
+<dialog id="dialog"></dialog>
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
